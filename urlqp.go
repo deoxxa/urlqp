@@ -57,6 +57,10 @@ func (v Values) String() string {
 func Parse(s string) (Values, error) {
 	s = strings.TrimPrefix(s, "?")
 
+	if s == "" {
+		return nil, nil
+	}
+
 	a := strings.Split(s, "&")
 
 	r := make(Values, len(a))
