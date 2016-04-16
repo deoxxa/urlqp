@@ -1,4 +1,4 @@
-package urlqp
+package urlqp // import "fknsrs.biz/p/urlqp"
 
 import (
 	"net/url"
