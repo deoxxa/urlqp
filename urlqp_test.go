@@ -63,23 +63,23 @@ func TestParse(t *testing.T) {
 func TestSerialize(t *testing.T) {
 	a := assert.New(t)
 
-	a.Equal(`a=b&c=d`, Serialize(Values{
+	a.Equal(`a=b&c=d`, (Values{
 		Pair{"a", "b"},
 		Pair{"c", "d"},
-	}))
+	}).String())
 
-	a.Equal(`a=b&a=b`, Serialize(Values{
+	a.Equal(`a=b&a=b`, (Values{
 		Pair{"a", "b"},
 		Pair{"a", "b"},
-	}))
+	}).String())
 
-	a.Equal(`a=+&+=a`, Serialize(Values{
+	a.Equal(`a=+&+=a`, (Values{
 		Pair{"a", " "},
 		Pair{" ", "a"},
-	}))
+	}).String())
 
-	a.Equal(`a=%2C&%2C=a`, Serialize(Values{
+	a.Equal(`a=%2C&%2C=a`, (Values{
 		Pair{"a", ","},
 		Pair{",", "a"},
-	}))
+	}).String())
 }
